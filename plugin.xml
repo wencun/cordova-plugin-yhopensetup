@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-yhopensetup" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova.plugins.YHOpenSetupPlugin</name>
+    <js-module name="YHOpenSetupPlugin" src="www/YHOpenSetupPlugin.js">
+        <clobbers target="cordova.plugins.YHOpenSetupPlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="YHOpenSetupPlugin">
+                <param name="android-package" value="com.setup.yhck.YHOpenSetupPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/YHOpenSetupPlugin.java" target-dir="src/com/setup/yhck"/>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="YHOpenSetupPlugin">
+                <param name="ios-package" value="YHOpenSetupPlugin"/>
+            </feature>
+        </config-file>
+
+        <!-- 引入的.h .m 文件 -->
+        <header-file src="src/ios/YHOpenSetupPlugin.h" />
+        <source-file src="src/ios/YHOpenSetupPlugin.m"/>
+
+    </platform>
+</plugin>
